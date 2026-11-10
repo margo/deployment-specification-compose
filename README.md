@@ -3,55 +3,52 @@
 This repository contains the Margo Compose workload deployment specification,
 a companion to the [core specification](https://github.com/margo/specification).
 
-## Contributing
+# Contributing
 
-Read the [contribution guidelines](CONTRIBUTING.md) and
-[code of conduct](.github/CODE_OF_CONDUCT.md) before submitting changes.
+[Contribution flow process In Detail ](https://miro.com/app/board/uXjVJfhlCYM=/?share_link_id=610857134424) - This flow process incorporates two systematic approaches, ([Cat 1](https://github.com/margo/specification/tree/pre-draft?tab=readme-ov-file#choose-cat-1--submit-pr--easycla--review--approve--merge) & [Cat 2](https://github.com/margo/specification/tree/pre-draft?tab=readme-ov-file#choose-cat-2--specification-update-process--sup-process--easycla--review--approve--merge)) utilised by the Technical Working Group for the evaluation and processing of submissions made by non-Margo members. It encompasses a series of defined stages, ensuring that each submission is rigorously reviewed in alignment with established criteria and protocols. The process is designed to facilitate transparency, efficiency, and thoroughness, thereby fostering a robust framework for collaboration and innovation within the group.
 
-The [contribution flow](https://miro.com/app/board/uXjVJfhlCYM=/?share_link_id=610857134424)
-defines two submission paths for individual contributors who are not Margo members:
+# Individual Contributor (Non-member)
 
-1. Category 1: Report a minor bug or
-   [submit a pull request](https://github.com/margo/deployment-specification-compose/pulls)
-   for a simple editorial change.
-2. Category 2: Submit a
-   [specification enhancement request](https://github.com/margo/specification-enhancements)
-   describing the proposed functionality.
+If you, as an individual non-Margo member, own the contribution, you **MUST SIGN** the Individual [Contributor License Agreement](https://github.com/margo/EasyCLA-public-feedback) (CLA) at the point of submitting a PR. This signed CLA will be required before your contribution can be merged into the project repository. Just so you know, as an individual contributor, you are acting on your own behalf and not on your employer.
 
-See the core specification's
-[Category 1 process](https://github.com/margo/specification/tree/pre-draft?tab=readme-ov-file#choose-cat-1--submit-pr--easycla--review--approve--merge)
-and [Category 2 process](https://github.com/margo/specification/tree/pre-draft?tab=readme-ov-file#choose-cat-2--specification-update-process--sup-process--easycla--review--approve--merge)
-for the detailed review stages.
+# Submission Steps
 
-### Individual contributors
+**Step 1:** The Contributor selects either Category 1 or Category 2 based on the type of submission proposal.
 
-Individual non-member contributors who own their contributions must sign the
-[Individual Contributor License Agreement](https://github.com/margo/EasyCLA-public-feedback)
-when submitting a pull request. The signed CLA is required before merging.
-As an individual contributor, you act on your own behalf, not on behalf of your employer.
+**Category 1 (Cat 1):** Minor Bug Report Issue or pull request submission to suggest a simple editorial change
 
-### Process outcomes
+**Category 2 (Cat 2):** Specification Enhancement Request detailing a suggested function proposal.
 
-Accepted Category 1 pull requests are reviewed by Technical Working Group members
-and merged into the appropriate branch. Accepted Category 2 enhancement requests
-are added to the roadmap and may require a specification update proposal approved
-by the Technical Working Group technical leads.
+<img width="2606" height="880" alt="image" src="https://github.com/user-attachments/assets/880ae53b-298c-42c6-a816-8c2ba166066f" />
 
-The chair may close an issue for insufficient feedback. Pull requests may be
-closed because of unresolved objections or stopped because of EasyCLA non-compliance.
+**Cat 1 - Step 2:** [Submit PR](https://github.com/margo/specification/pulls)
 
-### Governance principles
+**Cat 2 - Step 2:** [Submit Enhancement Request](https://github.com/margo/specification-enhancements)
 
-* Contributions require proper authorization and sign-off
-* Review stages and stakeholder responsibilities are transparent
-* Margo members oversee contribution quality
-* The chair has final authority over approvals and closures
+**ALL** Non-member PR submissions must sign the [Contributor License Agreement](https://github.com/margo/EasyCLA-public-feedback).  
 
-## License
+## Process Outcomes
 
-Margo contributors contributing to this draft specification have made those
-contributions subject to the Open Web Foundation Contributor License Agreement
-Contribution Copyright Grant. See [LICENSE](LICENSE) and the
-[CLA Copyright Grant 0.9](https://www.openwebfoundation.org/the-agreements/the-owf-0-9-agreements-necessary-claims/cla-copyright-grant-0-9).
+### **Success Paths**
+- **Cat 1**:
+  - PR approved by TWG members and merged into the appropriate release branch
+- **Cat 2**:
+  - Enhancement requests accepted and added to the roadmap 
+  - (Optional) Specification update proposal document submitted and approved by the TWG technical leads
 
-Copyright 2025 Margo.
+### **Closure Paths**
+- Chair closes issue (insufficient feedback/comments)
+- PR closed due to unresolved objections
+- Process stopped due to EasyCLA non-compliance
+
+## Key Governance Principles
+- **Sign-off Framework**: All contributions require proper authorization
+- **Transparency**: Clear review stages with defined stakeholders
+- **Member Oversight**: MARGO members maintain quality control
+- **Chair Authority**: Final decision-making power for approvals and closures
+
+## Licenses
+
+Margo contributors contributing to this draft specification have made those contributions subject to the Open Web Foundation Contributor License Agreement Contribution Copyright Grant, available at [Open Web Foundation - CLA Copyright Grant 0.9](https://www.openwebfoundation.org/the-agreements/the-owf-0-9-agreements-necessary-claims/cla-copyright-grant-0-9).
+
+Copyright ©️ 2025 Margo.
