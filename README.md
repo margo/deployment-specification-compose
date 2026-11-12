@@ -1,51 +1,63 @@
-# Compose Workload Deployment Specification
+# Compose Workload Deployment Technology Specification
 
-This repository contains the Margo Compose workload deployment specification,
-a companion to the [core specification](https://github.com/margo/specification).
+This repository contains the supplemental requirements for application and workload target suppliers to support the Compose workload deployment technology. This documentation supplements the requirements documented in Margo's [core specification](https://github.com/margo/specification) and does not stand on its own.
 
-# Contributing
+**Deployment Technology Key:** `margo.org/deployment/compose`
 
-[Contribution flow process In Detail ](https://miro.com/app/board/uXjVJfhlCYM=/?share_link_id=610857134424) - This flow process incorporates two systematic approaches, ([Cat 1](https://github.com/margo/specification/tree/pre-draft?tab=readme-ov-file#choose-cat-1--submit-pr--easycla--review--approve--merge) & [Cat 2](https://github.com/margo/specification/tree/pre-draft?tab=readme-ov-file#choose-cat-2--specification-update-process--sup-process--easycla--review--approve--merge)) utilised by the Technical Working Group for the evaluation and processing of submissions made by non-Margo members. It encompasses a series of defined stages, ensuring that each submission is rigorously reviewed in alignment with established criteria and protocols. The process is designed to facilitate transparency, efficiency, and thoroughness, thereby fostering a robust framework for collaboration and innovation within the group.
+**Specification Version:** `1.0.0-rc.3`
 
-# Individual Contributor (Non-member)
+> **Note:** This specification follows the same [Versioning Management Strategy](https://docs.margo.org/specification/specification-version-management) outlined in Margo's core specification. This specification is versioned independent of Margo's core specification.
 
-If you, as an individual non-Margo member, own the contribution, you **MUST SIGN** the Individual [Contributor License Agreement](https://github.com/margo/EasyCLA-public-feedback) (CLA) at the point of submitting a PR. This signed CLA will be required before your contribution can be merged into the project repository. Just so you know, as an individual contributor, you are acting on your own behalf and not on your employer.
+## Supplemental Requirements
 
-# Submission Steps
+The following pages define the additional requirements pertaining to supporting the Compose deployment technology:
 
-**Step 1:** The Contributor selects either Category 1 or Category 2 based on the type of submission proposal.
+- [Compose Profile Characteristics](./specification//margo-management-interface/compose-profile-characteristics.md)
+- [Application Description Supplemental Material](./specification/applications/application-description.md)
+- [Application Registry Supplemental Material](./specification/applications/application-registry.md)
+- [Workload Target Requirements Supplemental Material](./specification/margo-workload-targets/workload-target-requirements.md)
+- [Collecting Workload Observability Data Supplemental Material](./specification/observability/collecting-workload-observability-data.md)
 
-**Category 1 (Cat 1):** Minor Bug Report Issue or pull request submission to suggest a simple editorial change
+## Local Registries
 
-**Category 2 (Cat 2):** Specification Enhancement Request detailing a suggested function proposal.
+This section describes options for configuring local registries to avoid reliance on public Internet-accessible registries for situations where the Application Package and workload artifacts are not accessible via the internet.
 
-<img width="2606" height="880" alt="image" src="https://github.com/user-attachments/assets/880ae53b-298c-42c6-a816-8c2ba166066f" />
+### Option - Container Image Registry as Pull-through Cache on Docker Level
 
-**Cat 1 - Step 2:** [Submit PR](https://github.com/margo/specification/pulls)
+To configure a pull-through cache in Docker for the Container Image Registry, a Docker Registry can be setup that acts as caching proxy for a remote Docker Registry. Such a Docker Registry can be defined using the following `config.yml`:
 
-**Cat 2 - Step 2:** [Submit Enhancement Request](https://github.com/margo/specification-enhancements)
+```yaml
+version: 0.1
+log:
+  fields:
+    service: registry
+storage:
+  filesystem:
+    rootdirectory: /var/lib/registry
+http:
+  addr: :5000
+  headers:
+    X-Content-Type-Options: [nosniff]
+health:
+  storagedriver:
+    enabled: true
+    interval: 10s
+    threshold: 3
+proxy:
+  remoteurl: https://registry-1.docker.io
+```
 
-**ALL** Non-member PR submissions must sign the [Contributor License Agreement](https://github.com/margo/EasyCLA-public-feedback).  
+This registry can be started uing the following command:
+`docker run -d -p 5000:5000 --restart unless-stopped --name registry -v $(pwd)/config.yml:/etc/docker/registry/config.yml registry:2`
 
-## Process Outcomes
+Then, the Docker daemon needs to be configured to use the private registry as a mirror in the `/etc/docker/daemon.json` file:
 
-### **Success Paths**
-- **Cat 1**:
-  - PR approved by TWG members and merged into the appropriate release branch
-- **Cat 2**:
-  - Enhancement requests accepted and added to the roadmap 
-  - (Optional) Specification update proposal document submitted and approved by the TWG technical leads
-
-### **Closure Paths**
-- Chair closes issue (insufficient feedback/comments)
-- PR closed due to unresolved objections
-- Process stopped due to EasyCLA non-compliance
-
-## Key Governance Principles
-- **Sign-off Framework**: All contributions require proper authorization
-- **Transparency**: Clear review stages with defined stakeholders
-- **Member Oversight**: MARGO members maintain quality control
-- **Chair Authority**: Final decision-making power for approvals and closures
+```json
+{
+  "registry-mirrors": ["http://10.100.2.102:5000"],
+  "insecure-registries": ["10.100.2.102:5000"]
+}
+```
 
 ## Licenses
 
