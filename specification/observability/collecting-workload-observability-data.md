@@ -1,20 +1,20 @@
 # Collecting Workload Observability Data Supplemental Material
 
-The following content supplements the [Collecting Workload Observability Data](https://docs.margo.org/specification/observability/collecting-workload-observability-data) documentation in the core specification with requirements clarifications specific for the Compose deployment technology.
+The following content supplements the [Collecting Workload Observability Data](https://docs.margo.org/specification/observability/collecting-workload-observability-data) documentation in the core specification with requirements clarifications specific to the Compose deployment technology.
 
 ## Compose Platform Observability Requirements
 
 For workload targets with runtimes supporting Compose deployment technologies, such as Docker or Podman, the following is a minimum list of observability data that MUST be provided. The device owner MAY choose to provide additional observability data if they wish.
 
 - Container observability data MUST be collected.
-  - It is recommended the Device Owner use the [Docker Stats Receiver](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/receiver/dockerstatsreceiver/README.md) or [Podman Stats Receiver](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/receiver/podmanreceiver/README.md) with the default configuration to collect this information but using either of these receivers is not required.
-  - If the Device Owner chooses not to use either receiver they MUST provide the same output as the receiver's default configuration.
+  - It is recommended that the Device Owner use the [Docker Stats Receiver](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/receiver/dockerstatsreceiver/README.md) or [Podman Stats Receiver](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/receiver/podmanreceiver/README.md) with the default configuration to collect this information, but using either of these receivers is not required.
+  - If the Device Owner chooses not to use either receiver, they MUST provide the same output as the receiver's default configuration.
 
   > **Note:** Please see the [information below](#workload-observability-default-telemetry) for the default metrics emitted by the Docker Stats and Podman Stats Receivers.
 
 ## Workload Observability Default Telemetry
 
-The following telemetry data is collected by using the default configurations for the receivers indicated above. You can find more information about each piece of telemetry from the receiver's documentation.
+The following telemetry data is collected using the default configurations for the receivers indicated above. You can find more information about each piece of telemetry from the receiver's documentation.
 
 ### Metrics
 
