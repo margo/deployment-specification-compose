@@ -6,11 +6,11 @@ This repository contains the supplemental requirements for application and workl
 
 **Specification Version:** `1.0.0-rc.3`
 
-> **Note:** This specification follows the same [Versioning Management Strategy](https://docs.margo.org/specification/specification-version-management) outlined in Margo's core specification. This specification is versioned independent of Margo's core specification.
+> **Note:** This specification follows the same [Versioning Management Strategy](https://docs.margo.org/specification/specification-version-management) outlined in Margo's core specification. This specification is versioned independently of Margo's core specification.
 
 ## Supplemental Requirements
 
-The following pages define the additional requirements pertaining to supporting the Compose deployment technology:
+The following pages define the additional requirements for supporting the Compose deployment technology:
 
 - [Compose Profile Characteristics](./specification//margo-management-interface/compose-profile-characteristics.md)
 - [Application Description Supplemental Material](./specification/applications/application-description.md)
@@ -24,7 +24,7 @@ This section describes options for configuring local registries to avoid relianc
 
 ### Option - Container Image Registry as Pull-through Cache on Docker Level
 
-To configure a pull-through cache in Docker for the Container Image Registry, a Docker Registry can be setup that acts as caching proxy for a remote Docker Registry. Such a Docker Registry can be defined using the following `config.yml`:
+To configure a pull-through cache in Docker for the Container Image Registry, a Docker Registry can be set up that acts as a caching proxy for a remote Docker Registry. Such a Docker Registry can be defined using the following `config.yml`:
 
 ```yaml
 version: 0.1
@@ -47,7 +47,7 @@ proxy:
   remoteurl: https://registry-1.docker.io
 ```
 
-This registry can be started uing the following command:
+This registry can be started using the following command:
 `docker run -d -p 5000:5000 --restart unless-stopped --name registry -v $(pwd)/config.yml:/etc/docker/registry/config.yml registry:2`
 
 Then, the Docker daemon needs to be configured to use the private registry as a mirror in the `/etc/docker/daemon.json` file:
