@@ -1,4 +1,4 @@
-# Compose Workload Deployment Technology Specification
+# Compose Deployment Technology Specification
 
 This repository contains the supplemental requirements for application and workload target suppliers to support the Compose workload deployment technology. This documentation supplements the requirements documented in Margo's [core specification](https://github.com/margo/specification) and does not stand on its own.
 
