@@ -1,6 +1,6 @@
 # Application Registry Supplemental Material
 
-The following content supplements the [Application Registry](https://docs.margo.org/specification/applications/application-registry) documentation in the core specification with requirements specific for how the Composed OCI blob is created to facilitate workload deployment.
+The following content supplements the [Application Registry](https://docs.margo.org/specification/applications/application-registry) documentation in the core specification with requirements specific to how the Composed OCI blob is created to facilitate workload deployment.
 
 ## Compose Component Registry
 
