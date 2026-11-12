@@ -4,7 +4,7 @@ The following [Profile](https://docs.margo.org/specification/margo-management-in
 
 ## Compose Deployment Technology Support
 
-The following required characteristics indicates a workload target is capable of deploying Compose workloads.
+The following required characteristics indicate a workload target is capable of deploying Compose workloads.
 
 Key: `margo.org/deployment/compose`
 
