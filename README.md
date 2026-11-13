@@ -4,6 +4,8 @@ This repository contains the supplemental requirements for application and workl
 
 **Deployment Technology Key:** `margo.org/deployment/compose`
 
+**Status:** Candidate
+
 **Specification Version:** `1.0.0-rc.3`
 
 > **Note:** This specification follows the same [Versioning Management Strategy](https://docs.margo.org/specification/specification-version-management) outlined in Margo's core specification. This specification is versioned independently of Margo's core specification.
